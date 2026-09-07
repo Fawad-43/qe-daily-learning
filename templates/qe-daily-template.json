@@ -1,0 +1,17 @@
+{
+  "date": "YYYY-MM-DD",
+  "number": 1,
+  "topic_area": "API / Backend",
+  "title": "Strong technical title",
+  "slack_text": "Slack-ready 3–5 minute learning post",
+  "thread_answer": "Suggested answer to publish later in the thread",
+  "linkedin_text": "LinkedIn-ready 150–300 word version",
+  "quality_checks": {
+    "technically_correct": true,
+    "no_confidential_information": true,
+    "no_invented_company_architecture": true,
+    "assumptions_labelled": true,
+    "not_duplicate": true,
+    "challenge_requires_reasoning": true
+  }
+}
