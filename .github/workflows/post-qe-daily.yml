@@ -1,0 +1,31 @@
+name: Post QE Daily to Slack
+
+on:
+  schedule:
+    # 11:00 Asia/Karachi (UTC+5), Monday-Friday
+    - cron: '0 6 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate content
+        run: npm run validate
+
+      - name: Publish today's post
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: npm run post:slack
